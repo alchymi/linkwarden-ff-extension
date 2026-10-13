@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Assistant Linkwarden</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<header><img src="icon.svg" width="42" height="42" alt=""><div><span class="eyebrow">VOTRE BIBLIOTHÈQUE, MIEUX RANGÉE</span><h1>Assistant Linkwarden</h1></div><button id="settingsToggle" class="quiet" type="button">Réglages</button></header>
+<section id="settingsPanel" hidden><div class="sectionHeading"><h2>Vos connexions</h2><span class="badge">Stockage local</span></div><form id="settingsForm">
+<label>Adresse Linkwarden<input id="base" type="url" placeholder="https://links.votre-infra.fr" required></label>
+<label>Token Linkwarden<input id="linkToken" type="password" autocomplete="off" required></label>
+<label>Clé API OpenRouter<input id="openKey" type="password" autocomplete="off" required></label>
+<div class="columns"><label>Modèle OpenRouter<input id="model" placeholder="openai/gpt-4.1-mini" required></label><label>Limite de caractères<input id="limit" type="number" min="1000" max="60000" value="24000" required></label></div>
+<p class="hint">Les clés sont conservées dans votre profil Firefox, sans synchronisation et sans chiffrement. Elles ne sont jamais envoyées au modèle. Utilisez un modèle acceptant le mode JSON.</p>
+<div class="actions"><button type="submit">Enregistrer les réglages</button><button id="testConnection" type="button" class="secondary">Tester Linkwarden</button><button id="forget" type="button" class="quiet">Effacer les clés</button></div></form></section>
+<div id="status" role="status" aria-live="polite" hidden></div>
+<section id="pagePanel" hidden><div class="sectionHeading"><h2>La page à conserver</h2><span id="sourceBadge" class="badge"></span></div><p id="pageTitle" class="pageTitle"></p><p id="pageURL" class="url"></p><details><summary id="previewLabel">Voir le texte à envoyer</summary><pre id="preview"></pre></details><p class="hint">Au clic sur Analyser, l’URL, le titre, le texte ci-dessus et les noms de vos collections/tags seront envoyés à OpenRouter et au fournisseur du modèle.</p><button id="analyze" type="button">✦ Analyser avec l’IA</button></section>
+<section id="draftPanel" hidden><div class="sectionHeading"><h2>Votre favori</h2><span class="badge">Modifiable avant envoi</span></div><form id="draftForm">
+<label>Nom<input id="name" maxlength="250" required></label><label>Lien<input id="url" readonly></label>
+<label>Collection<select id="collection" required></select></label>
+<label>Tags<input id="tags" placeholder="design, outils, inspiration" list="tagSuggestions"><datalist id="tagSuggestions"></datalist><span class="hint">Séparez les tags par une virgule. Six tags maximum.</span></label>
+<label>Description<textarea id="description" rows="6" maxlength="6000"></textarea></label>
+<button id="save" type="submit">Enregistrer dans Linkwarden →</button></form></section>
+<footer>Extraction au clic · Rien n’est envoyé automatiquement</footer>
+</main><script src="core.js"></script><script src="page.js"></script></body></html>

@@ -1,0 +1,1 @@
+{"name":"linkwarden-page-assistant","version":"0.1.0","private":true,"scripts":{"test":"node --test tests/core.test.cjs","check":"node --check extension/core.js && node --check extension/background.js && node --check extension/page.js","smoke":"node scripts/smoke.cjs"}}

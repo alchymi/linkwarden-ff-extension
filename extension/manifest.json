@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Linkwarden · Assistant de page",
+  "version": "0.1.0",
+  "description": "Analyse une page avec OpenRouter et prépare son enregistrement dans votre Linkwarden.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": {"scripts": ["core.js", "background.js"]},
+  "action": {"default_title": "Préparer cette page pour Linkwarden", "default_icon": "icon.svg"},
+  "icons": {"48": "icon.svg", "96": "icon.svg"},
+  "options_ui": {"page": "page.html", "open_in_tab": true},
+  "browser_specific_settings": {"gecko": {"id": "page-assistant@linkwarden.local", "strict_min_version": "142.0", "data_collection_permissions": {"required": ["websiteContent", "browsingActivity", "authenticationInfo"]}}}
+}

@@ -1,0 +1,12 @@
+tocken.git
+token.git
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+node_modules/
+.npm-cache/
+.firefox-test-profile/
+dist/
+*.log
